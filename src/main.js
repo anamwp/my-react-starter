@@ -1,8 +1,9 @@
 // import notify from './Notification';
 import {notify} from './Notification';
 import {log} from './Notification';
-
 import book from './Notification';
+import React from 'react';
+import {render} from 'react-dom';
 
 notify('Hello another notify');
 log('I am log message');
@@ -16,3 +17,9 @@ class Form{
 
 }
 new Form();
+class HelloReact extends React.Component{
+    render(){
+    return (<div id="hello-react">Hello React</div>);
+    }
+}
+render(<HelloReact />, document.getElementById('app'));
