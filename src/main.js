@@ -1,9 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
+/**
+ * import components
+ */
+import EventHandler from './../components/eventhandler';
+import ShowComment from './../components/comment'
+import Page from './../components/warningBanner';
+import FormControl from './../components/formControl'
+import TemperatureCalculator from './../components/temperatureCalculator'
 
-class HelloReact extends React.Component{
-    render(){
-        return (<div id="hello-react">Hello React</div>);
-    }
-}
-render(<HelloReact />, document.getElementById('app'));
+
+ReactDOM.render(
+    <ShowComment />,
+    document.getElementById('app')
+);

@@ -1625,56 +1625,40 @@ module.exports = focusNode;
 "use strict";
 
 
-var _getPrototypeOf = __webpack_require__(56);
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = __webpack_require__(61);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(62);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(66);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(92);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
 var _react = __webpack_require__(32);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(103);
 
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _eventhandler = __webpack_require__(117);
+
+var _eventhandler2 = _interopRequireDefault(_eventhandler);
+
+var _comment = __webpack_require__(118);
+
+var _comment2 = _interopRequireDefault(_comment);
+
+var _warningBanner = __webpack_require__(112);
+
+var _warningBanner2 = _interopRequireDefault(_warningBanner);
+
+var _formControl = __webpack_require__(115);
+
+var _formControl2 = _interopRequireDefault(_formControl);
+
+var _temperatureCalculator = __webpack_require__(116);
+
+var _temperatureCalculator2 = _interopRequireDefault(_temperatureCalculator);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var HelloReact = function (_React$Component) {
-    (0, _inherits3.default)(HelloReact, _React$Component);
-
-    function HelloReact() {
-        (0, _classCallCheck3.default)(this, HelloReact);
-        return (0, _possibleConstructorReturn3.default)(this, (HelloReact.__proto__ || (0, _getPrototypeOf2.default)(HelloReact)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(HelloReact, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { id: 'hello-react' },
-                'Hello React'
-            );
-        }
-    }]);
-    return HelloReact;
-}(_react2.default.Component);
-
-(0, _reactDom.render)(_react2.default.createElement(HelloReact, null), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_comment2.default, null), document.getElementById('app'));
+/**
+ * import components
+ */
 
 /***/ }),
 /* 56 */
@@ -19905,6 +19889,719 @@ function camelize(string) {
 }
 
 module.exports = camelize;
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _loginControl = __webpack_require__(113);
+
+var _loginControl2 = _interopRequireDefault(_loginControl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function WarningBanner(props) {
+    if (!props.warn) {
+        return null;
+    }
+    return _react2.default.createElement(
+        'div',
+        { className: 'warning' },
+        _react2.default.createElement(_loginControl2.default, null)
+    );
+}
+
+var Page = function (_React$Component) {
+    (0, _inherits3.default)(Page, _React$Component);
+
+    function Page(props) {
+        (0, _classCallCheck3.default)(this, Page);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Page.__proto__ || (0, _getPrototypeOf2.default)(Page)).call(this, props));
+
+        _this.state = {
+            showWarning: true
+        };
+        _this.handleToggleClick = _this.handleToggleClick.bind(_this);
+        return _this;
+    }
+
+    (0, _createClass3.default)(Page, [{
+        key: 'handleToggleClick',
+        value: function handleToggleClick() {
+            this.setState(function (prevState) {
+                return {
+                    showWarning: !prevState.showWarning
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'button',
+                    { onClick: this.handleToggleClick },
+                    this.state.showWarning ? 'Hide' : 'Show'
+                ),
+                _react2.default.createElement(WarningBanner, { warn: this.state.showWarning })
+            );
+        }
+    }]);
+    return Page;
+}(_react2.default.Component);
+
+exports.default = Page;
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mailbox = __webpack_require__(114);
+
+var _mailbox2 = _interopRequireDefault(_mailbox);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var myMessages = ['react', 're:react', 're:re:react'];
+
+function UserGreetings(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'h2',
+            null,
+            'Welcome Back'
+        ),
+        _react2.default.createElement(
+            'ul',
+            null,
+            myMessages.map(function (singleMessage) {
+                return _react2.default.createElement(
+                    'li',
+                    { key: singleMessage },
+                    singleMessage
+                );
+            })
+        )
+    );
+}
+function UserLogin(props) {
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_mailbox2.default, { unreadMessage: myMessages }),
+        _react2.default.createElement(
+            'h2',
+            null,
+            'Please Login'
+        )
+    );
+}
+
+var Greetings = function (_React$Component) {
+    (0, _inherits3.default)(Greetings, _React$Component);
+
+    function Greetings() {
+        (0, _classCallCheck3.default)(this, Greetings);
+        return (0, _possibleConstructorReturn3.default)(this, (Greetings.__proto__ || (0, _getPrototypeOf2.default)(Greetings)).apply(this, arguments));
+    }
+
+    (0, _createClass3.default)(Greetings, [{
+        key: 'render',
+        value: function render(props) {
+            var isLoggedIn = this.props.isLoggedIn;
+            if (isLoggedIn) {
+                return _react2.default.createElement(UserGreetings, null);
+            } else {
+                return _react2.default.createElement(UserLogin, null);
+            }
+        }
+    }]);
+    return Greetings;
+}(_react2.default.Component);
+
+function LoginButton(props) {
+    return _react2.default.createElement(
+        'button',
+        { onClick: props.onClick },
+        'Login'
+    );
+}
+
+function LogoutButton(props) {
+    return _react2.default.createElement(
+        'button',
+        { onClick: props.onClick },
+        'Logout'
+    );
+}
+
+var LoginControl = function (_React$Component2) {
+    (0, _inherits3.default)(LoginControl, _React$Component2);
+
+    function LoginControl(props) {
+        (0, _classCallCheck3.default)(this, LoginControl);
+
+        var _this2 = (0, _possibleConstructorReturn3.default)(this, (LoginControl.__proto__ || (0, _getPrototypeOf2.default)(LoginControl)).call(this, props));
+
+        _this2.handleLoginClick = _this2.handleLoginClick.bind(_this2);
+        _this2.handleLogoutClick = _this2.handleLogoutClick.bind(_this2);
+        _this2.state = {
+            isLoggedIn: false
+        };
+        return _this2;
+    }
+
+    (0, _createClass3.default)(LoginControl, [{
+        key: 'handleLoginClick',
+        value: function handleLoginClick() {
+            this.setState({ isLoggedIn: true });
+        }
+    }, {
+        key: 'handleLogoutClick',
+        value: function handleLogoutClick() {
+            this.setState({ isLoggedIn: false });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var isLoggedIn = this.state.isLoggedIn;
+            var button = isLoggedIn ? _react2.default.createElement(LogoutButton, { onClick: this.handleLogoutClick }) : _react2.default.createElement(LoginButton, { onClick: this.handleLoginClick });
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(Greetings, { isLoggedIn: isLoggedIn }),
+                button
+            );
+        }
+    }]);
+    return LoginControl;
+}(_react2.default.Component);
+
+exports.default = LoginControl;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Mailbox = function (_React$Component) {
+    (0, _inherits3.default)(Mailbox, _React$Component);
+
+    function Mailbox() {
+        (0, _classCallCheck3.default)(this, Mailbox);
+        return (0, _possibleConstructorReturn3.default)(this, (Mailbox.__proto__ || (0, _getPrototypeOf2.default)(Mailbox)).apply(this, arguments));
+    }
+
+    (0, _createClass3.default)(Mailbox, [{
+        key: 'render',
+        value: function render(props) {
+            var unreadMessage = this.props.unreadMessage;
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    'Hello'
+                ),
+                unreadMessage.length > 0 && _react2.default.createElement(
+                    'h2',
+                    null,
+                    'you have ',
+                    unreadMessage.length,
+                    ' unread message'
+                ),
+                console.log(this.props)
+            );
+        }
+    }]);
+    return Mailbox;
+}(_react2.default.Component);
+
+exports.default = Mailbox;
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FormControl = function (_React$Component) {
+    (0, _inherits3.default)(FormControl, _React$Component);
+
+    function FormControl(props) {
+        (0, _classCallCheck3.default)(this, FormControl);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (FormControl.__proto__ || (0, _getPrototypeOf2.default)(FormControl)).call(this, props));
+
+        _this.state = {
+            value: 'Please write an eassy about your favourite DOM Element '
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
+    }
+
+    (0, _createClass3.default)(FormControl, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({
+                value: e.target.value
+            });
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(e) {
+            alert('A eassy was submitted: ' + this.state.value);
+            e.preventDefault();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'form',
+                    { onSubmit: this.handleSubmit },
+                    _react2.default.createElement(
+                        'label',
+                        { htmlFor: '' },
+                        'Eassy',
+                        _react2.default.createElement('textarea', { value: this.state.value, onChange: this.handleChange })
+                    ),
+                    _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+                )
+            );
+        }
+    }]);
+    return FormControl;
+}(_react2.default.Component);
+
+exports.default = FormControl;
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+        return _react2.default.createElement(
+            'p',
+            null,
+            'Water would boil'
+        );
+    } else {
+        return _react2.default.createElement(
+            'p',
+            null,
+            'Water would not boiled yet'
+        );
+    }
+}
+var scaleName = {
+    c: 'celsius',
+    f: 'Fahrenhiet'
+};
+
+var TemperatureCalculator = function (_React$Component) {
+    (0, _inherits3.default)(TemperatureCalculator, _React$Component);
+
+    function TemperatureCalculator(props) {
+        (0, _classCallCheck3.default)(this, TemperatureCalculator);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (TemperatureCalculator.__proto__ || (0, _getPrototypeOf2.default)(TemperatureCalculator)).call(this, props));
+
+        _this.state = {
+            temperature: ''
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
+    }
+
+    (0, _createClass3.default)(TemperatureCalculator, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({
+                temperature: e.target.value
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var temperature = this.state.temperature;
+            var scale = this.props.scale;
+            return _react2.default.createElement(
+                'fieldset',
+                null,
+                _react2.default.createElement(
+                    'legend',
+                    null,
+                    'Enter temperature in ',
+                    scaleName[scale],
+                    ': '
+                ),
+                _react2.default.createElement('input', { type: 'text', value: temperature, onChange: this.handleChange }),
+                _react2.default.createElement(BoilingVerdict, { celsius: parseFloat(temperature) })
+            );
+        }
+    }]);
+    return TemperatureCalculator;
+}(_react2.default.Component);
+
+exports.default = TemperatureCalculator;
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var EventHandler = function (_React$Component) {
+    (0, _inherits3.default)(EventHandler, _React$Component);
+
+    function EventHandler(props) {
+        (0, _classCallCheck3.default)(this, EventHandler);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (EventHandler.__proto__ || (0, _getPrototypeOf2.default)(EventHandler)).call(this, props));
+
+        _this.state = {
+            isToggleOn: 'true'
+        };
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
+    }
+
+    (0, _createClass3.default)(EventHandler, [{
+        key: 'handleClick',
+        value: function handleClick() {
+            this.setState(function (prevState) {
+                return {
+                    isToggleOn: !prevState.isToggleOn
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'button',
+                { onClick: this.handleClick },
+                this.state.isToggleOn ? 'On' : 'Off'
+            );
+        }
+    }]);
+    return EventHandler;
+}(_react2.default.Component);
+
+exports.default = EventHandler;
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = __webpack_require__(56);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(61);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(62);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(66);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(92);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(32);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FormateDate(date) {
+    return date.toLocaleDateString();
+}
+
+function Avatar(props) {
+    return _react2.default.createElement("img", {
+        className: "Avatar",
+        src: props.user.avatarUrl,
+        alt: props.user.name
+    });
+}
+
+function UserInfo(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "userInfo" },
+        _react2.default.createElement(Avatar, { user: props.user }),
+        _react2.default.createElement(
+            "div",
+            { className: "userInfo-name" },
+            props.user.name
+        )
+    );
+}
+
+function Comment(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "Comment" },
+        _react2.default.createElement(UserInfo, { user: props.author }),
+        _react2.default.createElement(
+            "h2",
+            null,
+            props.text
+        ),
+        _react2.default.createElement(
+            "p",
+            null,
+            FormateDate(props.date)
+        )
+    );
+}
+
+var comment = {
+    date: new Date(),
+    text: 'I hope you enjoy learning React!',
+    author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/64/64'
+    }
+};
+
+var ShowComment = function (_React$Component) {
+    (0, _inherits3.default)(ShowComment, _React$Component);
+
+    function ShowComment() {
+        (0, _classCallCheck3.default)(this, ShowComment);
+        return (0, _possibleConstructorReturn3.default)(this, (ShowComment.__proto__ || (0, _getPrototypeOf2.default)(ShowComment)).apply(this, arguments));
+    }
+
+    (0, _createClass3.default)(ShowComment, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(Comment, {
+                author: comment.author,
+                text: comment.text,
+                date: comment.date
+            });
+        }
+    }]);
+    return ShowComment;
+}(_react2.default.Component);
+
+exports.default = ShowComment;
 
 /***/ })
 /******/ ]);
