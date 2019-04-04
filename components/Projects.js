@@ -10,6 +10,12 @@ class Projects extends React.Component{
                     <p>My project description</p>
                     <a href="#">Checkout</a>
                 </div>
+
+                <div className="card2">
+                    <h3>My project title 2</h3>
+                    <p>My project description2 </p>
+                    <a href="#">Checkout 2</a>
+                </div>
                 
                 
             </div>
